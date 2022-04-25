@@ -1,0 +1,4 @@
+CREATE TABLE categories(
+    id SERIAL8 PRIMARY KEY,
+    name VARCHAR(60) NOT NULL
+);
