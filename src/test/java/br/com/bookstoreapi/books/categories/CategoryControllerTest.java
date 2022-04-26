@@ -1,6 +1,6 @@
-package com.bookstoreapi.bookstoreapi.categories;
+package br.com.bookstoreapi.books.categories;
 
-import com.bookstoreapi.bookstoreapi.BookstoreApiJacksonApplicationTests;
+import br.com.bookstoreapi.books.BookstoreBooksApplicationTests;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-class CategoryControllerTest extends BookstoreApiJacksonApplicationTests {
+class CategoryControllerTest extends BookstoreBooksApplicationTests {
 
 
     private MockMvc mockMvc;

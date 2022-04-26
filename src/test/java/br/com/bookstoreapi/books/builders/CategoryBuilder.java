@@ -1,6 +1,6 @@
-package com.bookstoreapi.bookstoreapi.builders;
+package br.com.bookstoreapi.books.builders;
 
-import com.bookstoreapi.bookstoreapi.categories.Category;
+import br.com.bookstoreapi.books.categories.Category;
 
 import java.util.LinkedList;
 import java.util.List;

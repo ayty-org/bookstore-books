@@ -1,9 +1,9 @@
-package com.bookstoreapi.bookstoreapi.book;
+package br.com.bookstoreapi.books.book;
 
-import com.bookstoreapi.bookstoreapi.book.service.*;
-import com.bookstoreapi.bookstoreapi.exception.CategoryNotFoundException;
-import com.bookstoreapi.bookstoreapi.exception.DeleteException;
-import com.bookstoreapi.bookstoreapi.exception.EntityNotFoundException;
+import br.com.bookstoreapi.books.book.service.*;
+import br.com.bookstoreapi.books.exception.CategoryNotFoundException;
+import br.com.bookstoreapi.books.exception.DeleteException;
+import br.com.bookstoreapi.books.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

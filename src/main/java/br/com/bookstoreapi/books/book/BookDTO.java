@@ -1,6 +1,6 @@
-package com.bookstoreapi.bookstoreapi.book;
+package br.com.bookstoreapi.books.book;
 
-import com.bookstoreapi.bookstoreapi.categories.Category;
+import br.com.bookstoreapi.books.categories.Category;
 import lombok.*;
 
 import java.util.Date;

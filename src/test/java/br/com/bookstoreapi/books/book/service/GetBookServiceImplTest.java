@@ -1,9 +1,9 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.book.Book;
-import com.bookstoreapi.bookstoreapi.book.BookRepository;
-import com.bookstoreapi.bookstoreapi.builders.BookBuilder;
-import com.bookstoreapi.bookstoreapi.exception.EntityNotFoundException;
+import br.com.bookstoreapi.books.book.Book;
+import br.com.bookstoreapi.books.book.BookRepository;
+import br.com.bookstoreapi.books.builders.BookBuilder;
+import br.com.bookstoreapi.books.exception.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

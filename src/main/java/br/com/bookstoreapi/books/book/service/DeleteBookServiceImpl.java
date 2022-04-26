@@ -1,10 +1,9 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.book.Book;
-import com.bookstoreapi.bookstoreapi.book.BookRepository;
-import com.bookstoreapi.bookstoreapi.exception.DeleteException;
-import com.bookstoreapi.bookstoreapi.exception.EntityNotFoundException;
-import com.bookstoreapi.bookstoreapi.purchase.PurchaseRepository;
+import br.com.bookstoreapi.books.book.Book;
+import br.com.bookstoreapi.books.book.BookRepository;
+import br.com.bookstoreapi.books.exception.DeleteException;
+import br.com.bookstoreapi.books.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,16 +15,16 @@ import java.util.UUID;
 public class DeleteBookServiceImpl implements DeleteBookService {
 
     private final BookRepository bookRepository;
-    private final PurchaseRepository purchaseRepository;
+    //private final PurchaseRepository purchaseRepository;
 
 
     @Override
     public void delete(UUID id) throws EntityNotFoundException, DeleteException {
         Optional<Book> bookOptional = bookRepository.findByUuid(id);
         if(bookOptional.isPresent()){
-            if (purchaseRepository.existsByPurchasedBooksUuid(id)) {
-                throw new DeleteException(id, Book.class.getSimpleName());
-            }
+//            if (purchaseRepository.existsByPurchasedBooksUuid(id)) {
+//                throw new DeleteException(id, Book.class.getSimpleName());
+//            }
             bookRepository.delete(bookOptional.get());
         }else{
             throw new EntityNotFoundException(id, Book.class.getSimpleName());

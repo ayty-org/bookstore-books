@@ -1,10 +1,8 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.book.BookRepository;
-import com.bookstoreapi.bookstoreapi.builders.BookBuilder;
-import com.bookstoreapi.bookstoreapi.exception.DeleteException;
-import com.bookstoreapi.bookstoreapi.exception.EntityNotFoundException;
-import com.bookstoreapi.bookstoreapi.purchase.PurchaseRepository;
+import br.com.bookstoreapi.books.book.BookRepository;
+import br.com.bookstoreapi.books.builders.BookBuilder;
+import br.com.bookstoreapi.books.exception.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -23,13 +21,13 @@ public class DeleteBookServiceImplTest {
     private DeleteBookServiceImpl deleteBookService;
     @Mock
     private BookRepository repository;
-    @Mock
-    private PurchaseRepository purchaseRepository;
+//    @Mock
+//    private PurchaseRepository purchaseRepository;
 
 
     @BeforeEach
     void setUp() {
-       this.deleteBookService = new DeleteBookServiceImpl(repository, purchaseRepository);
+       this.deleteBookService = new DeleteBookServiceImpl(repository);//, purchaseRepository);
     }
 
     @Test
@@ -53,15 +51,15 @@ public class DeleteBookServiceImplTest {
         verify(repository, never()).delete(any());
     }
 
-    @Test
-    void deleteWhenExistPurchaseWithClientTest(){
-        when(repository.findByUuid(UUID.fromString("12d51c0a-a843-46fc-8447-5fda559ec69b")))
-                .thenReturn(Optional.of(BookBuilder.book1L()));
-        when(purchaseRepository.existsByPurchasedBooksUuid(UUID.fromString("12d51c0a-a843-46fc-8447-5fda559ec69b")))
-                .thenReturn(true);
-
-        assertThrows(DeleteException.class,
-                ()-> deleteBookService.delete(UUID.fromString("12d51c0a-a843-46fc-8447-5fda559ec69b")));
-        verify(repository, never()).delete(any());
-    }
+//    @Test
+//    void deleteWhenExistPurchaseWithClientTest(){
+//        when(repository.findByUuid(UUID.fromString("12d51c0a-a843-46fc-8447-5fda559ec69b")))
+//                .thenReturn(Optional.of(BookBuilder.book1L()));
+//        when(purchaseRepository.existsByPurchasedBooksUuid(UUID.fromString("12d51c0a-a843-46fc-8447-5fda559ec69b")))
+//                .thenReturn(true);
+//
+//        assertThrows(DeleteException.class,
+//                ()-> deleteBookService.delete(UUID.fromString("12d51c0a-a843-46fc-8447-5fda559ec69b")));
+//        verify(repository, never()).delete(any());
+//    }
 }

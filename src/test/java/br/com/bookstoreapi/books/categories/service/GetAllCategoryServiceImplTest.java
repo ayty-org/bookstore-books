@@ -1,8 +1,8 @@
-package com.bookstoreapi.bookstoreapi.categories.service;
+package br.com.bookstoreapi.books.categories.service;
 
-import com.bookstoreapi.bookstoreapi.builders.CategoryBuilder;
-import com.bookstoreapi.bookstoreapi.categories.Category;
-import com.bookstoreapi.bookstoreapi.categories.CategoryRepository;
+import br.com.bookstoreapi.books.builders.CategoryBuilder;
+import br.com.bookstoreapi.books.categories.Category;
+import br.com.bookstoreapi.books.categories.CategoryRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

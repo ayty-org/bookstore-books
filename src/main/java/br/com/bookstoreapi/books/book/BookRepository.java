@@ -1,4 +1,4 @@
-package com.bookstoreapi.bookstoreapi.book;
+package br.com.bookstoreapi.books.book;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

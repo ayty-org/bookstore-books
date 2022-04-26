@@ -1,7 +1,7 @@
-package com.bookstoreapi.bookstoreapi.categories.service;
+package br.com.bookstoreapi.books.categories.service;
 
-import com.bookstoreapi.bookstoreapi.categories.Category;
-import com.bookstoreapi.bookstoreapi.categories.CategoryRepository;
+import br.com.bookstoreapi.books.categories.Category;
+import br.com.bookstoreapi.books.categories.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

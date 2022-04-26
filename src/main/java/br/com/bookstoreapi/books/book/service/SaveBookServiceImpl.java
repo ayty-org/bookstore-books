@@ -1,10 +1,10 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.book.Book;
-import com.bookstoreapi.bookstoreapi.book.BookRepository;
-import com.bookstoreapi.bookstoreapi.categories.Category;
-import com.bookstoreapi.bookstoreapi.categories.CategoryRepository;
-import com.bookstoreapi.bookstoreapi.exception.CategoryNotFoundException;
+import br.com.bookstoreapi.books.book.Book;
+import br.com.bookstoreapi.books.book.BookRepository;
+import br.com.bookstoreapi.books.categories.Category;
+import br.com.bookstoreapi.books.categories.CategoryRepository;
+import br.com.bookstoreapi.books.exception.CategoryNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

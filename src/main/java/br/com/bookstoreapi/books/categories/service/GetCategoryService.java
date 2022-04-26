@@ -1,7 +1,7 @@
-package com.bookstoreapi.bookstoreapi.categories.service;
+package br.com.bookstoreapi.books.categories.service;
 
-import com.bookstoreapi.bookstoreapi.categories.Category;
-import com.bookstoreapi.bookstoreapi.exception.CategoryNotFoundException;
+import br.com.bookstoreapi.books.categories.Category;
+import br.com.bookstoreapi.books.exception.CategoryNotFoundException;
 
 @FunctionalInterface
 public interface GetCategoryService {

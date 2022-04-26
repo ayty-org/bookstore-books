@@ -1,7 +1,6 @@
-package com.bookstoreapi.bookstoreapi.categories.service;
+package br.com.bookstoreapi.books.categories.service;
 
-import com.bookstoreapi.bookstoreapi.categories.Category;
-import com.bookstoreapi.bookstoreapi.categories.CategoryDTO;
+import br.com.bookstoreapi.books.categories.Category;
 
 import java.util.List;
 

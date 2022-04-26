@@ -1,8 +1,7 @@
-package com.bookstoreapi.bookstoreapi.categories;
+package br.com.bookstoreapi.books.categories;
 
 import lombok.*;
 
-import javax.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -1,8 +1,8 @@
-package com.bookstoreapi.bookstoreapi.categories;
+package br.com.bookstoreapi.books.categories;
 
-import com.bookstoreapi.bookstoreapi.categories.service.GetAllCategoryService;
-import com.bookstoreapi.bookstoreapi.categories.service.GetCategoryService;
-import com.bookstoreapi.bookstoreapi.exception.CategoryNotFoundException;
+import br.com.bookstoreapi.books.categories.service.GetAllCategoryService;
+import br.com.bookstoreapi.books.categories.service.GetCategoryService;
+import br.com.bookstoreapi.books.exception.CategoryNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,8 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.exception.DeleteException;
-import com.bookstoreapi.bookstoreapi.exception.EntityNotFoundException;
+
+import br.com.bookstoreapi.books.exception.DeleteException;
+import br.com.bookstoreapi.books.exception.EntityNotFoundException;
 
 import java.util.UUID;
 

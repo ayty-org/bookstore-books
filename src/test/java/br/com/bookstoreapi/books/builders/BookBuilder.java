@@ -1,7 +1,7 @@
-package com.bookstoreapi.bookstoreapi.builders;
+package br.com.bookstoreapi.books.builders;
 
-import com.bookstoreapi.bookstoreapi.book.Book;
-import com.bookstoreapi.bookstoreapi.book.BookRecieveDTO;
+import br.com.bookstoreapi.books.book.Book;
+import br.com.bookstoreapi.books.book.BookRecieveDTO;
 
 import java.util.Date;
 import java.util.LinkedList;

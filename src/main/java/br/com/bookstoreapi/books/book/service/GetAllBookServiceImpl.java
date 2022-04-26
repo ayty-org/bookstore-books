@@ -1,13 +1,11 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.book.Book;
-import com.bookstoreapi.bookstoreapi.book.BookDTO;
-import com.bookstoreapi.bookstoreapi.book.BookRepository;
+import br.com.bookstoreapi.books.book.Book;
+import br.com.bookstoreapi.books.book.BookRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service

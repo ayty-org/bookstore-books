@@ -1,6 +1,6 @@
-package com.bookstoreapi.bookstoreapi.book;
+package br.com.bookstoreapi.books.book;
 
-import com.bookstoreapi.bookstoreapi.categories.Category;
+import br.com.bookstoreapi.books.categories.Category;
 import lombok.*;
 import org.hibernate.validator.constraints.ISBN;
 
@@ -11,7 +11,6 @@ import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Builder
 @Getter

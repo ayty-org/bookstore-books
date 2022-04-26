@@ -1,13 +1,9 @@
-package com.bookstoreapi.bookstoreapi.categories;
+package br.com.bookstoreapi.books.categories;
 
-import com.bookstoreapi.bookstoreapi.client.Client;
-import com.bookstoreapi.bookstoreapi.client.ClientDTO;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @Builder
 @Table(name = "categories")

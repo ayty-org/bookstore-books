@@ -1,7 +1,7 @@
-package com.bookstoreapi.bookstoreapi.book;
+package br.com.bookstoreapi.books.book;
 
-import com.bookstoreapi.bookstoreapi.BookstoreApiJacksonApplicationTests;
-import com.bookstoreapi.bookstoreapi.builders.BookBuilder;
+import br.com.bookstoreapi.books.BookstoreBooksApplicationTests;
+import br.com.bookstoreapi.books.builders.BookBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +20,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @ExtendWith(SpringExtension.class)
-public class BookControllerTest extends BookstoreApiJacksonApplicationTests {
+public class BookControllerTest extends BookstoreBooksApplicationTests {
 
     private MockMvc mockMvc;
     @Autowired
@@ -171,11 +171,11 @@ public class BookControllerTest extends BookstoreApiJacksonApplicationTests {
                 .hasMessageContaining("Book with id 27eaa649-e8fa-4889-bd5a-ea6825b71ea6 not found");
     }
 
-    @Test
-    void deleteWhenExistPurchaseWithBook() {
-        Assertions.assertThatThrownBy(() ->mockMvc.perform(delete(url+"/12d51c0a-a843-46fc-8447-5fda559ec69b"))
-                        .andExpect(MockMvcResultMatchers.status().isConflict()))
-                .hasMessageContaining("Book with id 12d51c0a-a843-46fc-8447-5fda559ec69b" +
-                        " cannot be deleted because it is in one or more purchases");
-    }
+//    @Test
+//    void deleteWhenExistPurchaseWithBook() {
+//        Assertions.assertThatThrownBy(() ->mockMvc.perform(delete(url+"/12d51c0a-a843-46fc-8447-5fda559ec69b"))
+//                        .andExpect(MockMvcResultMatchers.status().isConflict()))
+//                .hasMessageContaining("Book with id 12d51c0a-a843-46fc-8447-5fda559ec69b" +
+//                        " cannot be deleted because it is in one or more purchases");
+//    }
 }

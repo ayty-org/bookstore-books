@@ -1,6 +1,7 @@
-package com.bookstoreapi.bookstoreapi.book.service;
+package br.com.bookstoreapi.books.book.service;
 
-import com.bookstoreapi.bookstoreapi.book.Book;
+
+import br.com.bookstoreapi.books.book.Book;
 
 import java.util.List;
 
