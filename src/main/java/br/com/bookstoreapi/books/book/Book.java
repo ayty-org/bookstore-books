@@ -35,7 +35,7 @@ public class Book implements Serializable {
     @JoinTable(
             name="books_categories",
             joinColumns={
-                    @JoinColumn(name = "book_id", referencedColumnName = "uuid")},
+                    @JoinColumn(name = "book_id", referencedColumnName = "id")},
             inverseJoinColumns = {
                     @JoinColumn(name = "category_id")}
             )

@@ -1,5 +1,5 @@
 CREATE TABLE books_categories(
-    book_id uuid NOT NULL REFERENCES books(uuid),
+    book_id BIGINT NOT NULL REFERENCES books(id),
     category_id BIGINT NOT NULL REFERENCES categories(id),
 
     PRIMARY KEY (book_id, category_id)
