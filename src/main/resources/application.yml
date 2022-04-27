@@ -12,3 +12,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
+  application:
+    name: books
+server:
+  port: 8082
