@@ -2,12 +2,16 @@ package br.com.bookstoreapi.books.book.v1;
 
 import br.com.bookstoreapi.books.BookstoreBooksApplicationTests;
 import br.com.bookstoreapi.books.book.BookRecieveDTO;
+import br.com.bookstoreapi.books.book.BookRepository;
+import br.com.bookstoreapi.books.book.service.*;
 import br.com.bookstoreapi.books.builders.BookBuilder;
+import br.com.bookstoreapi.books.purchase.PurchaseRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -16,6 +20,8 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import static org.hamcrest.core.Is.is;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,14 +30,36 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class BookControllerTest extends BookstoreBooksApplicationTests {
 
     private MockMvc mockMvc;
+
     @Autowired
-    private BookController bookController;
+    private  GetAllBookService getAllBookService;
+    @Autowired
+    private  GetBookService getBookService;
+    @Autowired
+    private  GetAllByCategoryNameBookService getAllByCategoryNameBookService;
+    @Autowired
+    private  SaveBookService saveBookService;
+    @Autowired
+    private  UpdateBookService updateBookService;
+
+    @Autowired
+    private BookRepository bookRepository;
+    @Mock
+    private PurchaseRepository purchaseRepository;
+
+
+
     ObjectMapper mapper = new ObjectMapper();
     private final String url = "/books";
 
 
     @BeforeEach
     void setUp(){
+
+        DeleteBookService deleteBookService = new DeleteBookServiceImpl(bookRepository,purchaseRepository);
+
+        BookController bookController = new BookController(getAllBookService, getBookService, getAllByCategoryNameBookService
+        ,saveBookService, updateBookService, deleteBookService);
         this.mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
     }
 
@@ -156,16 +184,16 @@ public class BookControllerTest extends BookstoreBooksApplicationTests {
                 .hasMessageContaining("Book with id 27eaa649-e8fa-4889-bd5a-ea6825b71e4b not found");
     }
 
-//    @Test
-//    void deleteTest() throws Exception{
-//
-//
-//        mockMvc.perform(delete(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
-//                .andExpect(MockMvcResultMatchers.status().isNoContent());
-//
-//        Assertions.assertThatThrownBy(() -> mockMvc.perform(get(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
-//                .andExpect(MockMvcResultMatchers.status().isNotFound()));
-//    }
+    @Test
+    void deleteTest() throws Exception{
+        when(purchaseRepository.existsByBooksUuid(any())).thenReturn(false);
+
+        mockMvc.perform(delete(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
+
+        Assertions.assertThatThrownBy(() -> mockMvc.perform(get(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
+                .andExpect(MockMvcResultMatchers.status().isNotFound()));
+    }
 
     @Test
     void deleteWhenIdDontExist(){
@@ -174,11 +202,13 @@ public class BookControllerTest extends BookstoreBooksApplicationTests {
                 .hasMessageContaining("Book with id 27eaa649-e8fa-4889-bd5a-ea6825b71ea6 not found");
     }
 
-//    @Test
-//    void deleteWhenExistPurchaseWithBook() {
-//        Assertions.assertThatThrownBy(() ->mockMvc.perform(delete(url+"/12d51c0a-a843-46fc-8447-5fda559ec69b"))
-//                        .andExpect(MockMvcResultMatchers.status().isConflict()))
-//                .hasMessageContaining("Book with id 12d51c0a-a843-46fc-8447-5fda559ec69b" +
-//                        " cannot be deleted because it is in one or more purchases");
-//    }
+    @Test
+    void deleteWhenExistPurchaseWithBook() {
+        when(purchaseRepository.existsByBooksUuid(any())).thenReturn(true);
+
+        Assertions.assertThatThrownBy(() ->mockMvc.perform(delete(url+"/12d51c0a-a843-46fc-8447-5fda559ec69b"))
+                        .andExpect(MockMvcResultMatchers.status().isConflict()))
+                .hasMessageContaining("Book with id 12d51c0a-a843-46fc-8447-5fda559ec69b" +
+                        " cannot be deleted because it is in one or more purchases");
+    }
 }
