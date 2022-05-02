@@ -50,7 +50,7 @@ public class BookControllerTest extends BookstoreBooksApplicationTests {
 
 
     ObjectMapper mapper = new ObjectMapper();
-    private final String url = "/books";
+    private final String url = "/v1/books";
 
 
     @BeforeEach
