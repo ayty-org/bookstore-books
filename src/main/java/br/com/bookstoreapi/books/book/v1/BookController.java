@@ -1,5 +1,7 @@
-package br.com.bookstoreapi.books.book;
+package br.com.bookstoreapi.books.book.v1;
 
+import br.com.bookstoreapi.books.book.BookDTO;
+import br.com.bookstoreapi.books.book.BookRecieveDTO;
 import br.com.bookstoreapi.books.book.service.*;
 import br.com.bookstoreapi.books.exception.CategoryNotFoundException;
 import br.com.bookstoreapi.books.exception.DeleteException;

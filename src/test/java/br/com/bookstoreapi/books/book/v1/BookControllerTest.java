@@ -1,6 +1,7 @@
-package br.com.bookstoreapi.books.book;
+package br.com.bookstoreapi.books.book.v1;
 
 import br.com.bookstoreapi.books.BookstoreBooksApplicationTests;
+import br.com.bookstoreapi.books.book.BookRecieveDTO;
 import br.com.bookstoreapi.books.builders.BookBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
@@ -155,14 +156,16 @@ public class BookControllerTest extends BookstoreBooksApplicationTests {
                 .hasMessageContaining("Book with id 27eaa649-e8fa-4889-bd5a-ea6825b71e4b not found");
     }
 
-    @Test
-    void deleteTest() throws Exception{
-        mockMvc.perform(delete(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
-                .andExpect(MockMvcResultMatchers.status().isNoContent());
-
-        Assertions.assertThatThrownBy(() -> mockMvc.perform(get(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
-                .andExpect(MockMvcResultMatchers.status().isNotFound()));
-    }
+//    @Test
+//    void deleteTest() throws Exception{
+//
+//
+//        mockMvc.perform(delete(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
+//                .andExpect(MockMvcResultMatchers.status().isNoContent());
+//
+//        Assertions.assertThatThrownBy(() -> mockMvc.perform(get(url+"/27eaa649-e8fa-4889-bd5a-ea6825b71e62"))
+//                .andExpect(MockMvcResultMatchers.status().isNotFound()));
+//    }
 
     @Test
     void deleteWhenIdDontExist(){
