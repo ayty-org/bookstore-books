@@ -23,7 +23,7 @@ class CategoryControllerTest extends BookstoreBooksApplicationTests {
     private MockMvc mockMvc;
     @Autowired
     private CategoryController categoryController;
-    private String url = "/categories";
+    private String url = "/v1/books/categories";
 
 
     @BeforeEach
