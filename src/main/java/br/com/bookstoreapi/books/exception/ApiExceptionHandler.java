@@ -18,6 +18,11 @@ public class ApiExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
     }
 
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<?> categoryNotFound(CategoryNotFoundException e){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+    }
+
     @ExceptionHandler(BookOutOfStockException.class)
     public ResponseEntity<?> illegalArgumentHandler(BookOutOfStockException e){
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
