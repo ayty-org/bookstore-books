@@ -7,6 +7,7 @@ import br.com.bookstoreapi.books.exception.CategoryNotFoundException;
 import br.com.bookstoreapi.books.exception.DeleteException;
 import br.com.bookstoreapi.books.exception.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,8 +30,8 @@ public class BookController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<BookDTO> list(){
-        return BookDTO.fromAll(getAllBookService.findAll());
+    public List<BookDTO> list(Pageable pageable){
+        return BookDTO.fromAll(getAllBookService.findAll(pageable));
     }
 
     @GetMapping("/{bookId}")

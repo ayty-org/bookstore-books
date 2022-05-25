@@ -7,6 +7,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Date;
@@ -31,9 +34,10 @@ public class GetAllBookServiceImplTest {
 
     @Test
     void findAllTest(){
-        when(bookRepository.findAll()).thenReturn(BookBuilder.bookList());
+        Pageable page = PageRequest.of(0,3);
+        when(bookRepository.findAll(page)).thenReturn(new PageImpl<>(BookBuilder.bookList()));
 
-        List<Book> books = getAllBookService.findAll();
+        List<Book> books = getAllBookService.findAll(page);
 
         assertThat(3, is(books.size()));
         verify(bookRepository, times(1)).findAll();
