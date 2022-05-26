@@ -41,6 +41,8 @@ public class BookControllerTest extends BookstoreBooksApplicationTests {
     private  SaveBookService saveBookService;
     @Autowired
     private  UpdateBookService updateBookService;
+    @Autowired
+    private TotalElementsService totalElementsService;
 
     @Autowired
     private BookRepository bookRepository;
@@ -59,7 +61,7 @@ public class BookControllerTest extends BookstoreBooksApplicationTests {
         DeleteBookService deleteBookService = new DeleteBookServiceImpl(bookRepository,purchaseRepository);
 
         BookController bookController = new BookController(getAllBookService, getBookService, getAllByCategoryNameBookService
-        ,saveBookService, updateBookService, deleteBookService);
+        ,saveBookService, updateBookService, deleteBookService, totalElementsService);
         this.mockMvc = MockMvcBuilders.standaloneSetup(bookController).build();
     }
 

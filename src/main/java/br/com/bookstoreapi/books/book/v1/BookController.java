@@ -27,12 +27,21 @@ public class BookController {
     private final UpdateBookService putBookService;
     private final DeleteBookService deleteBookService;
 
+    private final TotalElementsService totalElementsService;
+
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<BookDTO> list(Pageable pageable){
         return BookDTO.fromAll(getAllBookService.findAll(pageable));
     }
+
+    @GetMapping("/elements/total")
+    @ResponseStatus(HttpStatus.OK)
+    public Integer getTotal(){
+        return this.totalElementsService.getTotalElements();
+    }
+
 
     @GetMapping("/{bookId}")
     @ResponseStatus(HttpStatus.OK)
